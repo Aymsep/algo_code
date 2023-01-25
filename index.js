@@ -1,5 +1,6 @@
 function ln(sen){
-    let sentence_length = sen.trim().split(' ').join('').length;
+    let sentence_length = sen.length;
+    let word_num = Array.from(sen.split(" ")).length
     let vowel = Array.from(sen)
     let vowel_total = 0
     let count_vowel = vowel.forEach(item => {
@@ -9,7 +10,6 @@ function ln(sen){
         }
 
     })
-    return [sentence_length, vowel_total]
-    
+    return [sentence_length, word_num, vowel_total]
 }
-console.log(ln("fasdfasdf fasdf sda fasd dfsa."))
+console.log(ln('lfdjsl fldsjf flkdsjf lkjfsd') )
