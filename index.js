@@ -1,20 +1,32 @@
-function dot_product(v1, v2) {
-    let ps = 0;
-    for (let i = 0; i < v1.length; i++) {
-      ps += v1[i] * v2[i];
+const st_1 = [3, 1, 7, 9]
+const st_2 = [2, 4, 1, 9, 3]
+let se = [...st_1, ...st_2]
+let duplicate_num = []
+let nono_dup = []
+let n = false
+for(let i = 0; i < st_1.length; i++) {
+  for(let j = st_2.length; j >= 0 ; j--) {
+    if(st_1[i]==st_2[j]) {
+      duplicate_num.push(st_2[j])
+      break;
     }
-    console.log(ps);
   }
-dot_product([1, 2, 3],[1, 2, 3])
+}
 
-function isOrthogonal(vectors) {
-    for (let i = 0; i < vectors.length; i++) {
-      for (let j = i + 1; j < vectors.length; j++) {
-        if (dot_product(vectors[i], vectors[j]) !== 0) {
-          return false;
-        }
-      }
+
+
+
+for(let i = 0; i < se.length; i++) {
+  flag = false
+  for(let j =0; j < duplicate_num.length; j++) {
+    if(se[i]==duplicate_num[j]){
+      flag = true
+      break;
     }
-    return true;
   }
-console.log(isOrthogonal([8,5]))
+  if(!flag){
+    nono_dup.push(se[i])
+  }
+}
+
+
