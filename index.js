@@ -1,20 +1,20 @@
-function ln(arr1,arr2){
-    const a = new Set([...arr1,...arr2])
-    const sum = [...a].reduce((total,item)=>{
-        return total + item
-    },0)
-    console.log(a)
-    console.log(sum) 
-}
-ln([1,2,3,3],[1,2,3,5,4])
+function dot_product(v1, v2) {
+    let ps = 0;
+    for (let i = 0; i < v1.length; i++) {
+      ps += v1[i] * v2[i];
+    }
+    console.log(ps);
+  }
+dot_product([1, 2, 3],[1, 2, 3])
 
-function sm(arr1, arr2) {
-    const a = [...arr1,...arr2]
-    let set = new Set(a)
-    let nwarr = a.filter((item,index) => a.indexOf(item) !== index);
-    let sum = nwarr.reduce((sum, item) => sum + item)
-    console.log(sum)
-
-    
-}
-sm([1,2,3,4,5,1,3],[1,2,3])
+function isOrthogonal(vectors) {
+    for (let i = 0; i < vectors.length; i++) {
+      for (let j = i + 1; j < vectors.length; j++) {
+        if (dot_product(vectors[i], vectors[j]) !== 0) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+console.log(isOrthogonal([8,5]))
